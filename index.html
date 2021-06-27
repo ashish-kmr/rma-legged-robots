@@ -3,9 +3,9 @@
 <html>
   <link href="style.css" type="text/css" rel="stylesheet" />
   <head>
-    <title>Learning Navigation Subroutines from Egocentric Videos</title>
+    <title>RMA: Rapid Motor Adaptation for Legged Robots</title>
   </head>
-  <meta content="Maps and Landmarks" property="og:title" />
+  <meta content="motor adaptation" property="og:title" />
 </html>
 <body>
   <center>
@@ -13,7 +13,7 @@
       <tr>
         <td>
           <center>
-            <span style="font-size:42px">Learning Navigation Subroutines from Egocentric Videos</span>
+            <span style="font-size:42px">RMA: Rapid Motor Adaptation for Legged Robot</span>
           </center>
           <br />
         </td>
@@ -25,7 +25,7 @@
               <td width="19%">
                 <center>
                   <span style="font-size:20px">
-                    <a href="https://ashishkumar1993.github.io/">Ashish Kumar<sup>1</sup></a>
+                    <a href="https://ashish-kmr.github.io/">Ashish Kumar<sup>1</sup></a>
                   </span>
                 </center>
               </td>
@@ -33,14 +33,23 @@
               <td width="19%">
                 <center>
                   <span style="font-size:20px">
-                    <a href="https://people.eecs.berkeley.edu/~sgupta">Saurabh Gupta<sup>2,3</sup></a>
+                    <a href="https://markfzp.github.io/">Zipeng Fu<sup>2</sup></a>
                   </span>
                 </center>
               </td>
+
               <td width="19%">
                 <center>
                   <span style="font-size:20px">
-                    <a href="https://people.eecs.berkeley.edu/~malik">Jitendra Malik<sup>1,2</sup></a>
+                    <a href="https://www.cs.cmu.edu/~dpathak/">Deepak Pathak<sup>2</sup></a>
+                  </span>
+                </center>
+              </td>
+
+              <td width="19%">
+                <center>
+                  <span style="font-size:20px">
+                    <a href="https://people.eecs.berkeley.edu/~malik">Jitendra Malik<sup>1,3</sup></a>
                   </span>
                 </center>
               </td>
@@ -53,7 +62,7 @@
         <td>
           <center>
             <span style="font-size:20px"><sup>1</sup> University of California at Berkeley,
-              <sup>2</sup> Facebook AI Research, <sup>3</sup>UIUC </span>
+              <sup>2</sup> Carnegie Mellon University<sup>3</sup>Facebook AI Research </span>
           </center>
           <br />
         </td>
@@ -65,13 +74,12 @@
             <tr>
               <td>
                 <center>
-                  <!-- <video width='70%' controls> <source src='video-vmsr.mp4'></video> -->
-                <iframe width="700" height="410" src="https://www.youtube.com/embed/Q-wv7KHTSqw"></iframe>
+                <iframe width="700" height="410" src="https://youtu.be/p_pPrJXQk90"></iframe>
                 </center>
                 <br/>
-                <center><h1><a href="https://arxiv.org/abs/1905.12612">Paper</a> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<a href="https://github.com/ashishkumar1993/vmsr"> Code </a> </h1></center>
+                <center><h1><a href="rma-locomotion.pdf">Paper</a> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<a href="Supplementary"> Supplementary </a> </h1></center>
                 <br/>
-                Hierarchies are an effective way to boost sample efficiency in reinforcement learning, and computational efficiency in classical planning. However, acquiring hierarchies via hand-design (as in classical planning) is suboptimal, while acquiring them via end-to-end reward based training (as in reinforcement learning) is unstable and still prohibitively expensive. In this paper, we pursue an alternate paradigm for acquiring such hierarchical abstractions (or visuo-motor subroutines), via use of passive first-person observation data. We use an inverse model trained on small amounts of interaction data to pseudo-label the passive first person videos with agent actions. Visuo-motor subroutines are acquired from these pseudo-labeled videos by learning a latent intent-conditioned policy that predicts the inferred pseudo-actions from the corresponding image observations. We demonstrate our proposed approach in context of navigation, and show that we can successfully learn consistent and diverse visuo-motor subroutines from passive first-person videos. We demonstrate the utility of our acquired visuo-motor subroutines by using them as is for exploration, and as sub-policies in a hierarchical RL framework for reaching point goals and semantic goals. We also demonstrate behavior of our subroutines in the real world, by deploying them on a real robotic platform.
+                Successful real-world deployment of legged robots would require them to <i>adapt in real-time</i> to unseen scenarios like changing terrains, changing payloads, wear and tear. This paper presents Rapid Motor Adaptation (RMA) algorithm to solve this problem of real-time online adaptation in quadruped robots. RMA consists of two components: a base policy and an adaptation module. The combination of these components enables the robot to adapt to novel situations in fractions of a second. RMA is trained completely in simulation without using any domain knowledge like reference trajectories or predefined foot trajectory generators and is deployed on the A1 robot without any fine-tuning. We train RMA on a varied terrain generator using bioenergetics-inspired rewards and deploy it on a variety of difficult terrains including rocky, slippery, deformable surfaces in environments with grass, long vegetation, concrete, pebbles, stairs, sand, etc. RMA shows state-of-the-art performance across diverse real-world as well as simulation experiments.
                 <br/><br/>
 <br /><br /><hr /></td>
             </tr>
@@ -79,118 +87,6 @@
         </td>
       </tr>
 
-      <tr><td>
-      <center><h1>What are we Learning?</h1></center>
-
-      <img src='resources/images/fig1.jpeg' width='100%'><br/><br/>
-        <p>
-        Given an input image as shown above, we want to be able to execute
-        subroutines (short horizon policies that exhibit a coherent behavior such as going left into a room),
-        and affordances which tell us what subroutines can be invoked where. In our experiments, we learn 4
-        subroutines from passive first person navigation video which show consistent and diverse
-        behaviors as shown below (these are the top views of unrolled subroutines
-        when starting from different locations):<br/><br/>
-      <img src='resources/images/op1.png' width='48%'> <img src='resources/images/op2.png' width='48%'> <br/><br/>
-      We also deploy the learned subroutines as is in the real world on a real robot:<br/><br/>
-      <video width='48%' controls> <source src='resources/diverse.mp4'></video>
-      <video width='48%' controls> <source src='resources/consistent.mp4'></video>
-        </p>
-      <hr/>
-      </td></tr>
-      <tr>
-        <td>
-        <center><h1>Why Subroutines?</h1></center>
-        Learned subroutines and affordance models can be transferred
-        to downstream navigation tasks. Our subroutines and
-        the affordance model can be used as is in conjunction with
-        each other to tackle tasks like exploration of novel environments.
-        We can simply compose our subroutines via affordance
-        model to generate exploration behavior. Our method outperforms several handcrafted and learning based baselines.
-        The coverage of the overall space after sampling 20 roll-outs from 11 different
-        locations is visualized on the right.<br/><br/>
-        <img src='resources/images/explr1.png' width='43%'> &nbsp &nbsp &nbsp <img src='resources/images/explr2.png' width='48%'>
-        <br/><br/>
-        Furthermore,
-        this decomposition into subroutines and affordance
-        models, very naturally fits into hierarchical reinforcement
-        learning frameworks. Our subroutines are analogous to
-        sub-policies, while the affordance model is analogous to the
-        meta-controller.<br/><br/>
-        <img src='resources/images/rl3.png' width='32%'>
-        <img src='resources/images/rl2.png' width='32%'>
-        <img src='resources/images/rl1.png' width='32%'>
-        <br/><br/>
-        Initializing from VMSR leads to large gains in sample complexity
-for downstream navigation tasks. First two images show results for
-PointGoal (go to (x; y) coordinate), middle two show results for
-AreaGoal (go to washroom). We see improvements across these
-tasks for both sparse and dense reward scenarios, with larger gains
-in the harder case of sparser rewards. VMSR is upto 4 more
-sample efficient than the next best hierarchical method.
-Initializing a flat RL policy with
-VMSR (with only 1 SubR) leads to improved sample complexity
-for downstream AreaGoal navigation task (go to washroom), as
-compared to alternate schemes for initialization, based on random
-initialization, initialization from ImageNet features, and initialization
-from skills obtained via curiosity (shown in last two images).
-                  <!-- <video width='100%' controls> <source src='http://web.eecs.umich.edu/~fouhey/TEMP/RPF//Media1.mp4'></video>
-        <br/><br/><br/>
-        -->
-        </p>
-
-
-    <!--
-    <table><tr><td width="49%"><iframe src="https://www.youtube.com/embed/UoX3DAkxaSA?ecver=1" height="300" width="490" allowfullscreen="1" gesture="media" allow="encrypted-media" frameborder="0"></iframe></td><td width="2%"></td><td width="49%"><iframe src="https://www.youtube.com/embed/W9nWp9HN3V8?ecver=1" height="300" width="490" allowfullscreen="1" gesture="media" allow="encrypted-media" frameborder="0"></iframe></td></tr></table><br />
-
-
-    -->
-    <hr /></td>
-      </tr>
-      <tr><td>
-      <center><h1>How do we learn Subroutines and the Affordance model?</h1></center>
-
-      <img src='resources/images/overview-new.png' width='100%'><br/><br/>
-        <p>
-        We start with first person navigation videos from agents
-        R<sub>1</sub> . . R<sub>n</sub>, without corresponding action labels. People constantly
-upload these kinds of videos online making it freely
-available. Given these videos, we want our robot S to learn
-subroutines from these videos. This happens in two phases.
-</p>
-<p>
-<img src='resources/images/method1.png' width='45%' align="left">
-<img src='resources/images/method2.png' width='45%' align="right"><br/><br/>
-</p>
-<p>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-
-In the first phase, we generate
-pseudo-action labels for these videos by running an inverse
-model on every consecutive pair of images. This inverse
-model is learned by the agent S using self supervision on
-random exploration data. An interesting thing to note is that
-action space of R<sub>1</sub> . .R<sub>n</sub> might be different from the action
-space of our agent S. Hence, these pseudo-action labels are
-not the actual action taken, but an action imagined by the
-agent S to make transition between the observations in the
-reference video in the agent S's action space as closely as
-possible. In the second phase, we start with
-these pseudo-labeled videos and train a forward prediction
-model that takes the image as input and predicts the corresponding
-action taken in the reference video. However, this
-is a fundamentally ambiguous task, for example, an agent
-R<sub>k</sub> in the reference video that is facing a T-junction could
-have gone either left or right. To disambiguate this, we allow
-another network to look at the entire sequence of actions
-of Rk in the reference video and encode the behavior
-as a one-hot latent intent vector that is additionally used
-to make the forward prediction. We additionally train a model, affordance model to predict which subroutines can be invoked
-for a given input image from our repertoire of learned
-subroutines. We do this by predicting the inferred one-hot
-encoding of the trajectory from the first image.
-        </p>
-      <hr/>
-      </td></tr>
       <tr>
         <td>
           <center>
